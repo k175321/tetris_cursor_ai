@@ -53,7 +53,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ field, activeBlock, ghostPosition
 
   return (
     <div
-      className="grid grid-cols-10 grid-rows-20 gap-[2px] bg-gray-700 p-1 rounded-md w-[300px] h-[600px] md:w-[400px] md:h-[800px] mx-auto touch-none select-none outline outline-2 outline-gray-800"
+      className="grid grid-cols-10 grid-rows-20 gap-0 bg-gray-700 p-1 rounded-md w-[300px] h-[600px] md:w-[400px] md:h-[800px] mx-auto touch-none select-none outline outline-2 outline-gray-800"
       aria-label="테트리스 게임 보드"
       tabIndex={0}
     >
@@ -63,8 +63,12 @@ const GameBoard: React.FC<GameBoardProps> = ({ field, activeBlock, ghostPosition
           return (
             <div
               key={`${y}-${x}`}
-              className={`w-full h-full min-w-0 min-h-0 rounded-sm border border-gray-800 ${c.filled ? c.color : 'bg-gray-900'}`}
-              style={{ width: '100%', height: '100%' }}
+              className={`w-full h-full min-w-0 min-h-0 rounded-sm ${c.filled ? c.color : 'bg-gray-900'}`}
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                boxShadow: 'inset 0 0 0 0.75px #374151' // 배경색과 동일한 그리드
+              }}
             />
           );
         })

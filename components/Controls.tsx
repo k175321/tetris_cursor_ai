@@ -13,14 +13,6 @@ interface ControlsProps {
 const Controls: React.FC<ControlsProps> = ({ onLeft, onRight, onDown, onRotate, onHardDrop, onPause }) => {
   return (
     <div className="w-full max-w-[360px] flex flex-col items-center mt-2 gap-2">
-      {/* 키보드 안내 */}
-      <div className="text-xs text-gray-400 flex flex-col gap-1 items-center mb-2">
-        <div>← → : 좌우 이동</div>
-        <div>↑ : 회전</div>
-        <div>↓ : 한 칸 내리기</div>
-        <div>Space : 하드 드롭</div>
-        <div>ESC : 일시정지</div>
-      </div>
       {/* 모바일 터치 버튼 (md 이하에서만 보임) */}
       <div className="flex flex-col gap-2 w-full md:hidden">
         <div className="flex justify-between gap-2">
@@ -37,5 +29,18 @@ const Controls: React.FC<ControlsProps> = ({ onLeft, onRight, onDown, onRotate, 
     </div>
   );
 };
+
+// ControlsGuide: 키보드 조작법 안내 카드
+export const ControlsGuide: React.FC = () => (
+  <div className="w-[144px] bg-gray-800 rounded-md text-white dark:bg-gray-900 p-3 mb-2 flex flex-col items-center">
+    <div className="text-base text-gray-300 flex flex-col gap-1 items-center">
+      <div>← → : 좌우 이동</div>
+      <div>↑ : 회전</div>
+      <div>↓ : 한 칸 내리기</div>
+      <div>Space : 하드 드롭</div>
+      <div>ESC : 일시정지</div>
+    </div>
+  </div>
+);
 
 export default Controls; 
