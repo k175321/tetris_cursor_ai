@@ -67,7 +67,12 @@ export default function TetrisGame() {
             ghostPosition={ghostPosition}
             blockShape={gameState.activeBlock.block.shape}
           />
-          <Overlay isPaused={gameState.isPaused} isGameOver={gameState.isGameOver} onRestart={restart} />
+          <Overlay 
+            isPaused={gameState.isPaused} 
+            isGameOver={gameState.isGameOver} 
+            onRestart={restart}
+            onResume={gameState.isPaused && !gameState.isGameOver ? resume : undefined}
+          />
         </div>
         {/* 오른쪽: 다음 블록 카드 */}
         <div className="flex flex-col gap-4 items-center md:items-start md:ml-4">
