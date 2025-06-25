@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tetris (Next.js + Tailwind CSS + TypeScript)
 
-## Getting Started
+## 🎮 게임 소개
+- 이 프로젝트는 Next.js, Tailwind CSS, TypeScript로 구현된 웹 테트리스 게임입니다.
+- 데스크탑과 모바일 모두에서 쾌적하게 플레이할 수 있습니다.
+- 다크모드 UI, 반응형 레이아웃, 표준 테트리스 룰을 지원합니다.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🕹️ 조작법
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| 키/버튼         | 기능 설명                |
+|-----------------|-------------------------|
+| ←, →            | 블록 좌우 이동           |
+| ↑               | 블록 회전               |
+| ↓               | 블록 한 칸 내리기        |
+| Space(스페이스) | 하드 드롭(즉시 바닥)     |
+| ESC             | 일시정지/재개            |
+| Restart 버튼    | 게임 재시작              |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 모바일에서는 화면 하단의 터치 버튼으로도 조작할 수 있습니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🏆 점수 및 스테이지
 
-To learn more about Next.js, take a look at the following resources:
+- **점수**
+  - 1줄 삭제: 100점
+  - 2줄 동시 삭제: 400점
+  - 3줄 동시 삭제: 900점
+  - 4줄 동시 삭제(테트리스): 1600점
+- **스테이지**
+  - 3000점마다 스테이지가 1씩 증가
+  - 스테이지가 오를 때마다 블록 낙하 속도가 1.2배씩 빨라집니다
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔥 주요 기능
 
-## Deploy on Vercel
+- **다크모드 지원**: 시스템/브라우저 설정에 따라 자동 적용
+- **반응형 UI**: 데스크탑/모바일 모두 최적화
+- **일시정지/재시작**: ESC로 일시정지, Pause/Game Over 시 Restart 버튼 제공
+- **다음 블록 미리보기**: 오른쪽 카드 영역에 다음에 나올 블록 2개 표시
+- **게임오버**: 블록이 맨 위에 닿으면 게임 종료, Restart로 새 게임 시작
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚠️ 유의사항
+
+- **최신 브라우저**(Chrome, Edge, Safari 등)에서 플레이를 권장합니다.
+- 모바일에서는 가로 화면에서 더 쾌적하게 플레이할 수 있습니다.
+- 점수/스테이지/진행상황은 새로고침 시 초기화됩니다(별도 저장 없음).
+
+---
+
+## 💻 실행 방법
+
+1. 프로젝트 클론 및 의존성 설치
+   ```bash
+   git clone [레포주소]
+   cd tetris_cursor_ai
+   npm install
+   ```
+2. 개발 서버 실행
+   ```bash
+   npm run dev
+   ```
+3. 브라우저에서 [http://localhost:3000](http://localhost:3000) 접속
+
+---
+
+## 🙋‍♂️ 문의/기여
+
+- 버그 제보, 기능 제안, 코드 기여는 언제든 환영합니다!
