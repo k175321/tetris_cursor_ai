@@ -18,6 +18,7 @@ export default function TetrisGame() {
     pause,
     resume,
     restart,
+    ghostPosition,
   } = useTetris();
 
   React.useEffect(() => {
@@ -60,7 +61,12 @@ export default function TetrisGame() {
         </div>
         {/* 가운데: 게임 보드 및 오버레이 */}
         <div className="relative">
-          <GameBoard field={gameState.field} activeBlock={gameState.activeBlock} />
+          <GameBoard 
+            field={gameState.field} 
+            activeBlock={gameState.activeBlock} 
+            ghostPosition={ghostPosition}
+            blockShape={gameState.activeBlock.block.shape}
+          />
           <Overlay isPaused={gameState.isPaused} isGameOver={gameState.isGameOver} onRestart={restart} />
         </div>
         {/* 오른쪽: 다음 블록 카드 */}

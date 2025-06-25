@@ -95,6 +95,15 @@ const EMPTY_BLOCK: Block = {
   color: 'bg-gray-800',
 };
 
+// 고스트 블록(하드드롭 예상 위치) 계산
+function getGhostPosition(field: GameField, block: Block, position: Position) {
+  let y = position.y;
+  while (!checkCollision(field, block.shape, { x: position.x, y: y + 1 })) {
+    y++;
+  }
+  return { x: position.x, y };
+}
+
 export function useTetris() {
   // 항상 랜덤 블록으로 초기화
   const [gameState, setGameState] = useState<GameState>({
@@ -295,6 +304,13 @@ export function useTetris() {
     });
   }, []);
 
+  // 고스트 블록 위치 계산
+  const ghostPosition = getGhostPosition(
+    gameState.field,
+    gameState.activeBlock.block,
+    gameState.activeBlock.position
+  );
+
   return {
     gameState,
     moveLeft,
@@ -305,5 +321,6 @@ export function useTetris() {
     pause,
     resume,
     restart,
+    ghostPosition,
   };
 } 
