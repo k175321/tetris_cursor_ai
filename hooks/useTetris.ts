@@ -119,14 +119,18 @@ export function useTetris() {
     if (gameState.isPaused || gameState.isGameOver) return;
     dropInterval.current = DROP_BASE_INTERVAL / Math.pow(DROP_ACCEL, gameState.stage - 1);
     dropTimer.current && clearTimeout(dropTimer.current);
-    dropTimer.current = setTimeout(() => {
+
+    const tick = () => {
       moveDown();
-    }, dropInterval.current);
+      dropTimer.current = setTimeout(tick, dropInterval.current);
+    };
+    dropTimer.current = setTimeout(tick, dropInterval.current);
+
     return () => {
       if (dropTimer.current) clearTimeout(dropTimer.current);
     };
     // eslint-disable-next-line
-  }, [gameState.activeBlock, gameState.isPaused, gameState.isGameOver, gameState.stage]);
+  }, [gameState.isPaused, gameState.isGameOver, gameState.stage]);
 
   // 블록 이동
   const move = useCallback((dx: number, dy: number, rotateBlock = false) => {
