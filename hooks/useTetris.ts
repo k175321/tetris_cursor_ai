@@ -14,7 +14,7 @@ const TETROMINOS: Record<TetrominoType, { shape: number[][]; color: string }> = 
 };
 
 const FIELD_WIDTH = 10;
-const FIELD_HEIGHT = 20;
+const FIELD_HEIGHT = 17;
 const DROP_BASE_INTERVAL = 800; // ms, 스테이지 1 기준
 const DROP_ACCEL = 1.2; // 스테이지마다 속도 증가 배수
 

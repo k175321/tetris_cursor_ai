@@ -14,12 +14,10 @@ const NextBlocks: React.FC<NextBlocksProps> = ({ nextBlocks }) => {
           {block.shape.map((row, y) => (
             <div key={y} className="flex">
               {row.map((cell, x) => (
-                cell ? (
-                  <div
-                    key={x}
-                    className={`w-6 h-6 m-[2px] rounded-sm border border-gray-700 ${block.color}`}
-                  />
-                ) : null
+                <div
+                  key={x}
+                  className={`w-6 h-6 m-[2px] rounded-sm border ${cell ? `border-gray-700 ${block.color}` : 'border-transparent bg-transparent'}`}
+                />
               ))}
             </div>
           ))}

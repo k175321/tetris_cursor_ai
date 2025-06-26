@@ -53,7 +53,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ field, activeBlock, ghostPosition
 
   return (
     <div
-      className="grid grid-cols-10 grid-rows-20 gap-0 bg-gray-700 p-1 rounded-md w-[300px] h-[600px] md:w-[400px] md:h-[800px] mx-auto touch-none select-none outline outline-2 outline-gray-800"
+      className="grid grid-cols-10 grid-rows-17 gap-0 bg-gray-700 p-1 rounded-md w-[300px] h-[510px] md:w-[400px] md:h-[680px] mx-auto touch-none select-none outline outline-2 outline-gray-800"
       aria-label="테트리스 게임 보드"
       tabIndex={0}
     >
